@@ -1,27 +1,68 @@
 "use client";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { ArrowUpRight, ChevronDown, Search, SlidersHorizontal } from "lucide-react";
-import type { Project, SkillCategory } from "@/content/portfolio";
+import type { Project, SkillCategory, WorkExample } from "@/content/portfolio";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
+import { SkillPreview, SkillPreviewScope, ScreenshotViewer } from "@/components/skill-screenshot";
+import { SkillScreenshotCard } from "@/components/skill-screenshot-card";
+
 export type FilterCopy = Record<string, string>;
-export function SkillsExplorer({ categories, copy }: { categories: SkillCategory[]; copy: FilterCopy }) {
-  const [query, setQuery] = useState(""); const [category, setCategory] = useState("all");
+export function SkillsExplorer({ categories, copy, examples, proofCopy, overviewFeedback }: {
+  categories: SkillCategory[]; copy: FilterCopy; examples: WorkExample[];
+  proofCopy: FilterCopy; overviewFeedback: ReactNode;
+}) {
+  const [query, setQuery] = useState("");
+  const [category, setCategory] = useState("all");
   const [expanded, setExpanded] = useState<string[]>([]);
-  const matches = useMemo(() => categories.filter(c => category === "all" || c.id === category).map(c => ({ ...c, skills: c.skills.filter(skill => `${skill} ${c.name}`.toLowerCase().includes(query.trim().toLowerCase())) })).filter(c => c.skills.length), [categories, query, category]);
+  const [viewer, setViewer] = useState<{ example: WorkExample; categoryId: string } | null>(null);
+  useEffect(() => {
+    const sync = () => {
+      const id = window.location.hash.slice(1);
+      if (categories.some(item => item.id === id)) setCategory(id);
+      else if (!id || id === "all") setCategory("all");
+    };
+    sync(); window.addEventListener("hashchange", sync);
+    return () => window.removeEventListener("hashchange", sync);
+  }, [categories]);
+  function selectCategory(id: string) {
+    setCategory(id); setViewer(null);
+    history.replaceState(history.state, "", `${location.pathname}${location.search}${id === "all" ? "" : `#${id}`}`);
+  }
+  const matches = useMemo(() => categories.filter(c => category === "all" || c.id === category).map(c => ({ ...c, skills: c.skills.filter(skill => `${skill.name} ${c.name}`.toLowerCase().includes(query.trim().toLowerCase())) })).filter(c => c.skills.length), [categories, query, category]);
   const count = matches.reduce((total, c) => total + c.skills.length, 0);
-  return <div className="explorer">
-    <div className="filter-bar"><div className="search-field"><Search size={19} aria-hidden="true" /><label className="sr-only" htmlFor="skill-search">{copy.search}</label><Input id="skill-search" value={query} onChange={e => setQuery(e.target.value)} placeholder={copy.searchPlaceholder} /></div><div className="select-wrap"><SlidersHorizontal size={16} aria-hidden="true" /><label className="sr-only" htmlFor="skill-category">{copy.category}</label><select id="skill-category" value={category} onChange={e => setCategory(e.target.value)}><option value="all">{copy.all}</option>{categories.map(c => <option value={c.id} key={c.id}>{c.shortName}</option>)}</select></div></div>
-    <div className="filter-chips" role="group" aria-label={copy.category}><button className={category === "all" ? "chip active" : "chip"} aria-pressed={category === "all"} onClick={() => setCategory("all")}>{copy.all}</button>{categories.map(c => <button key={c.id} className={category === c.id ? "chip active" : "chip"} aria-pressed={category === c.id} onClick={() => setCategory(c.id)}>{c.shortName}</button>)}</div>
-    <p className="results-label" role="status">{count} {copy.result}</p>
-    {matches.length ? <div className="skill-grid">{matches.map((c, index) => {
-      const isOpen = Boolean(query.trim()) || expanded.includes(c.id); const visible = isOpen ? c.skills : c.skills.slice(0, 6);
-      return <article className="skill-card" id={c.id} key={c.id}><div className="skill-card-heading"><span className="mono accent">{String(index + 1).padStart(2, "0")}</span><span className="mono muted">{c.skills.length}</span></div><h2>{c.name}</h2><p>{c.description}</p><ul className="tags" id={`skills-${c.id}`}>{visible.map(s => <li key={s}>{s}</li>)}</ul>{c.skills.length > 6 && !query.trim() && <button className="text-action expand-button" aria-expanded={isOpen} aria-controls={`skills-${c.id}`} onClick={() => setExpanded(previous => isOpen ? previous.filter(id => id !== c.id) : [...previous, c.id])}>{isOpen ? copy.collapse : `${copy.expand} (+${c.skills.length - 6})`}<ChevronDown size={15} className={isOpen ? "rotated" : ""} /></button>}</article>;
-    })}</div> : <div className="empty-state"><Search size={32} /><h2>{copy.noResults}</h2><p>{copy.noResultsDetail}</p><Button variant="outline" onClick={() => { setQuery(""); setCategory("all"); }}>{copy.reset}</Button></div>}
-  </div>;
+  return <SkillPreviewScope>
+    <div className="container explorer">
+      <div className="filter-bar"><div className="search-field"><Search size={19} aria-hidden="true" /><label className="sr-only" htmlFor="skill-search">{copy.search}</label><Input id="skill-search" value={query} onChange={e => setQuery(e.target.value)} placeholder={copy.searchPlaceholder} /></div><div className="select-wrap"><SlidersHorizontal size={16} aria-hidden="true" /><label className="sr-only" htmlFor="skill-category">{copy.category}</label><select id="skill-category" value={category} onChange={e => selectCategory(e.target.value)}><option value="all">{copy.all}</option>{categories.map(c => <option value={c.id} key={c.id}>{c.shortName}</option>)}</select></div></div>
+      <div className="filter-chips" role="group" aria-label={copy.category}><button className={category === "all" ? "chip active" : "chip"} aria-pressed={category === "all"} onClick={() => selectCategory("all")}>{copy.all}</button>{categories.map(c => <button key={c.id} className={category === c.id ? "chip active" : "chip"} aria-pressed={category === c.id} onClick={() => selectCategory(c.id)}>{c.shortName}</button>)}</div>
+      <p className="evidence-help">{category === "all" && !query.trim() ? proofCopy.previewHelp : proofCopy.skillPreviewHelp}</p>
+      <p className="results-label" role="status">{count} {copy.result}</p>
+      {matches.length ? <div className={`skill-grid ${category !== "all" ? "is-filtered" : ""}`}>{matches.map(c => {
+        const isOpen = Boolean(query.trim()) || expanded.includes(c.id); const visible = isOpen ? c.skills : c.skills.slice(0, 6);
+        const available = examples.filter(example => example.categories.includes(c.id));
+        const featured = available.find(example => example.id === c.featuredExampleId);
+        return <SkillScreenshotCard id={c.id} name={c.name} key={`${category}:${query.trim()}:${c.id}`} example={featured} copy={proofCopy} viewerActive={viewer?.categoryId === c.id} onOpen={example => setViewer({ example, categoryId: c.id })} renderFront={(active, previewChanged, open) => <>
+          <div className="skill-card-heading"><span className="mono accent">{String(categories.findIndex(item => item.id === c.id) + 1).padStart(2, "0")}</span><span className="mono muted">{c.skills.length}</span></div>
+          <h2>{c.name}</h2><p>{c.description}</p>
+          <ul className="tags" id={`skills-${c.id}`}>{visible.map(skill => {
+            const related = examples.filter(example => skill.exampleIds?.includes(example.id));
+            const selected = related.find(example => example.id === skill.featuredExampleId) ?? related[0];
+            return <li key={skill.id} className={selected ? "has-evidence" : undefined}>{selected ? <SkillPreview label={skill.name} example={selected} active={active} ownerId={c.id} onPreviewState={previewChanged} copy={proofCopy} onOpen={() => open(selected)} /> : skill.name}</li>;
+          })}</ul>
+          <div className="skill-card-actions">
+            {c.skills.length > 6 && !query.trim() && <button className="text-action expand-button" aria-expanded={isOpen} aria-controls={`skills-${c.id}`} onClick={() => setExpanded(previous => isOpen ? previous.filter(id => id !== c.id) : [...previous, c.id])}>{isOpen ? copy.collapse : `${copy.expand} (+${c.skills.length - 6})`}<ChevronDown size={15} className={isOpen ? "rotated" : ""} /></button>}
+            {category === "all" && available.length > 0 && <button type="button" className="text-action" onClick={() => selectCategory(c.id)}>{proofCopy.categoryExamples}<ArrowUpRight size={14} /></button>}
+          </div>
+        </>} />;
+      })}</div> : <div className="empty-state"><Search size={32} /><h2>{copy.noResults}</h2><p>{copy.noResultsDetail}</p><Button variant="outline" onClick={() => { setQuery(""); selectCategory("all"); }}>{copy.reset}</Button></div>}
+    </div>
+    {category === "all" && !viewer && overviewFeedback}
+    {viewer && <ScreenshotViewer example={viewer.example} copy={proofCopy} onClose={() => setViewer(null)} />}
+  </SkillPreviewScope>;
 }
+
 export function ProjectExplorer({ projects, categories, copy }: { projects: Project[]; categories: string[]; copy: FilterCopy }) {
   const [category, setCategory] = useState("all"); const [technology, setTechnology] = useState("all");
   const technologies = [...new Set(projects.flatMap(p => p.technologies))].sort();

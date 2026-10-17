@@ -1,3 +1,3 @@
-import { Cloud, Workflow, Users, Mail, Search, Headset, UserRoundSearch, PanelsTopLeft, BriefcaseBusiness, ShieldCheck, Network, GraduationCap, type LucideProps } from "lucide-react";
-const icons = { cloud: Cloud, automation: Workflow, crm: Users, email: Mail, leads: Search, support: Headset, recruitment: UserRoundSearch, workspace: PanelsTopLeft, experience: BriefcaseBusiness, security: ShieldCheck, network: Network, training: GraduationCap };
-export function Icon({ name, ...props }: LucideProps & { name: string }) { const Comp = icons[name as keyof typeof icons] ?? Network; return <Comp aria-hidden="true" {...props} />; }
+import { Cloud, Workflow, Users, Mail, Search, Headset, UserRoundSearch, PanelsTopLeft, BriefcaseBusiness, ShieldCheck, GraduationCap, type LucideProps } from "lucide-react";
+const icons = { cloud: Cloud, automation: Workflow, crm: Users, email: Mail, leads: Search, support: Headset, recruitment: UserRoundSearch, workspace: PanelsTopLeft, experience: BriefcaseBusiness, security: ShieldCheck, training: GraduationCap };
+export function Icon({ name, ...props }: LucideProps & { name: string }) { const Comp = icons[name as keyof typeof icons] ?? Workflow; return <Comp aria-hidden="true" {...props} />; }

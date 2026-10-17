@@ -1,0 +1,422 @@
+[
+  {
+    "sourceFolder": "Additional Business and IT Tools",
+    "originalFilename": "v2_Screenshot 2026-10-17 215859.jpg",
+    "sourceSha256": "101f268ec8fc653e444b580c4e30a5b2b9880de7f711ee2bad43a075ef1e7365",
+    "exampleId": "evidence-01",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/business/microsoft-onenote-sharepoint-onboarding-guide.webp",
+    "publicSha256": "d7fc1d1ddba15d3d1d45aa0bb609f954fc1d0fde85a733e7aa6ddb78622ec386"
+  },
+  {
+    "sourceFolder": "Additional Business and IT Tools",
+    "originalFilename": "v2_Screenshot 2026-10-17 215911.jpg",
+    "sourceSha256": "0313c76c96d8d3e72750a694e4aa728026aa306fe926f8bed0902dc687de7682",
+    "exampleId": "evidence-02",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/business/microsoft-onenote-workable-access-guide.webp",
+    "publicSha256": "2d47f9b58f146f1b74581ec5777d8656faefd415292f8f97e2a55490cbb43540"
+  },
+  {
+    "sourceFolder": "AI Tools and Assisted Workflows",
+    "originalFilename": "v2_Screenshot 2026-10-17 215348.jpg",
+    "sourceSha256": "c36395f5129530d2b952084c892057f358f03815ee0631ad709398d84b6b1094",
+    "exampleId": "evidence-03",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/ai/claude-ai-assisted-process-documentation.webp",
+    "publicSha256": "c2beeedb6073a5086dd50dee1c0924cf0936c39983e1b19f0c63db3ab4891bc8"
+  },
+  {
+    "sourceFolder": "AI Tools and Assisted Workflows",
+    "originalFilename": "v2_Screenshot 2026-10-17 215445.jpg",
+    "sourceSha256": "ee228342871f904cffd1842071c5fe8c26977ea9c62484b6c6cb1fec4193f8da",
+    "exampleId": "evidence-04",
+    "duplicate": false,
+    "status": "draft",
+    "publicAsset": "",
+    "publicSha256": null
+  },
+  {
+    "sourceFolder": "CRM and Busines Management",
+    "originalFilename": "v2_creenshot 2026-10-17 204603.jpg",
+    "sourceSha256": "6b8bbdbaaa9ece61474484db63b2ff5ec5be0cbe76b8d00c069c927a35e21bef",
+    "exampleId": "evidence-05",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/crm/microsoft-power-platform-environment-administration.webp",
+    "publicSha256": "f5445f065fb2375edd64faa149ecf9040148fd74903334d315736001cdcf0184"
+  },
+  {
+    "sourceFolder": "CRM and Busines Management",
+    "originalFilename": "v2_Screenshot 2026-10-17 204732.jpg",
+    "sourceSha256": "8efeda3a89f9b7e316803bbd650b29f42e3b1e7727556d93c5b935c41a297291",
+    "exampleId": "evidence-06",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/crm/gohighlevel-appointment-calendar.webp",
+    "publicSha256": "4d442cce298c603232ebc16b52b8aa602528e7905cccb9caae48d455859e26c8"
+  },
+  {
+    "sourceFolder": "CRM and Busines Management",
+    "originalFilename": "v2_Screenshot 2026-10-17 205100.jpg",
+    "sourceSha256": "8dcb3098938021da72a65268f6df1fba807f7bb41b875cf4fc95d2fc8c1a54c8",
+    "exampleId": "evidence-07",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/crm/zoho-api-applications-and-scheduled-automation.webp",
+    "publicSha256": "2162477def4808871d620b52f74936392f2367e9de2a40ab270e899dbc6ae697"
+  },
+  {
+    "sourceFolder": "CRM and Busines Management",
+    "originalFilename": "v2_Screenshot 2026-10-17 205300.jpg",
+    "sourceSha256": "c0d85fbe6e43b4b1cebd02d1293d21ecd297cb71dea0c5d73bb9ce0455585b28",
+    "exampleId": "evidence-08",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/crm/clickup-business-process-automation-rules.webp",
+    "publicSha256": "f7e640a26395df14dfd9d322cf4bf19c0bf87833047baa4e7534114c4bf4c318"
+  },
+  {
+    "sourceFolder": "DNS and Security",
+    "originalFilename": "v2_Screenshot 2026-10-17 213648.jpg",
+    "sourceSha256": "113547c28dc14404098f0839926bea063ea7f732473b816214d01a22d6c273cf",
+    "exampleId": "evidence-09",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/security/microsoft-365-admin-center-domain-management.webp",
+    "publicSha256": "cb4698a6cde98cf73accc69d6f4878d4f6e7268f7370ec1f569e992b47fdfac1"
+  },
+  {
+    "sourceFolder": "DNS and Security",
+    "originalFilename": "v2_Screenshot 2026-10-17 213824.jpg",
+    "sourceSha256": "5552a916187439d1295eb2e6b565c3bfdecdcb170f38dd5f66b27b9f7ba31a80",
+    "exampleId": "evidence-10",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/security/microsoft-defender-device-security-inventory.webp",
+    "publicSha256": "b69840298bec37a217bb2f9d2fa1f6d8d9e9e1d37d49d46a9e7ec301908f3fa4"
+  },
+  {
+    "sourceFolder": "DNS and Security",
+    "originalFilename": "v2_Screenshot 2026-10-17 214058.jpg",
+    "sourceSha256": "4a3b577c1a11b34932f8e57586dc72cba3feed7aad53848ba6f04634c2f0f251",
+    "exampleId": "evidence-11",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/security/cloudflare-domain-overview.webp",
+    "publicSha256": "cf9e17fa4f2f06ef0581340d8a555a042b41ca850795bd119bdd993353207e97"
+  },
+  {
+    "sourceFolder": "DNS and Security",
+    "originalFilename": "v2_Screenshot 2026-10-17 214143.jpg",
+    "sourceSha256": "98ccf95df79948f9771c8f7d00efc0cc202c8fba38ec9d57abf9f30eb4de023a",
+    "exampleId": "evidence-12",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/security/microsoft-defender-incident-investigation-overview.webp",
+    "publicSha256": "5915dcba0f977778b4ffaa91f455c46de25622d2d8a20b12b81070e92e96c9d4"
+  },
+  {
+    "sourceFolder": "Email marketing and Deliverability",
+    "originalFilename": "v2_Screenshot 2026-10-17 211417.jpg",
+    "sourceSha256": "bbf19c0f84620bde4126c7059ea9cbeff2768de624f80a7af951ed52df76727c",
+    "exampleId": "evidence-13",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/email/reply-io-outreach-contact-management.webp",
+    "publicSha256": "c3a79f31edf5aa34107cf1d3cb9c2b2d1ccfb9cf6d4f1a745c9877f488ffc4de"
+  },
+  {
+    "sourceFolder": "Email marketing and Deliverability",
+    "originalFilename": "v2_Screenshot 2026-10-17 211424.jpg",
+    "sourceSha256": "6617cb450d1bb2cedc3f22caec6c8d6977f63c63e0cff10b768281109f49d715",
+    "exampleId": "evidence-14",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/email/reply-io-outreach-sequence-builder.webp",
+    "publicSha256": "3afd5c61c624670cd64073c094bc7794588b30f93cb63c8c5f9cc70d9d29c24b"
+  },
+  {
+    "sourceFolder": "Google Workspace Administration",
+    "originalFilename": "v2_Screenshot 2026-10-17 204111.jpg",
+    "sourceSha256": "f3293e7ab0308313a67c928771a10925ffe99743c702bce26b6868e12f86518e",
+    "exampleId": "evidence-15",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/google/google-admin-console-user-directory-and-organizational-units.webp",
+    "publicSha256": "f9a57965f31192ba2fef372bcfc2de04f48014113c609d58eca958ff36313510"
+  },
+  {
+    "sourceFolder": "Google Workspace Administration",
+    "originalFilename": "v2_Screenshot 2026-10-17 204211.jpg",
+    "sourceSha256": "cae32ea2c191fd893def1d84fbcc1e95173da2d48d7c5d130ad00e10af54c4dc",
+    "exampleId": "evidence-16",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/google/google-admin-console-user-event-investigation.webp",
+    "publicSha256": "bc847eb2aa888b824f6eb025d3b782067727cfeffb6dcf44d9ebb0e171fb67ae"
+  },
+  {
+    "sourceFolder": "Google Workspace Administration",
+    "originalFilename": "v2_Screenshot 2026-10-17 204341.jpg",
+    "sourceSha256": "02fd94c293a858d3dcb545efea46a974cbfbdddb89f8ebe212cc97ca48592a4a",
+    "exampleId": "evidence-17",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/google/google-cloud-project-console.webp",
+    "publicSha256": "8ae09f60503bb19b387101a16cc1a769222d287cbf1781af750fd67f26330c03"
+  },
+  {
+    "sourceFolder": "IT Support and Systems Administration",
+    "originalFilename": "d365_1.png",
+    "sourceSha256": "cee74ea156238708f9629edf5567e9827da41bcc6198440746012e3a143a3806",
+    "exampleId": "evidence-18",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/support/dynamics-365-closed-support-cases.webp",
+    "publicSha256": "989a4c7319182d48f0da7c29a960420c43493e4da449e4a131d99df752797098"
+  },
+  {
+    "sourceFolder": "IT Support and Systems Administration",
+    "originalFilename": "d365_2.png",
+    "sourceSha256": "8f5ed0365748fd30ffd2ca6c9b79c8e01d2cef91b74397cf229f69d41655909a",
+    "exampleId": "evidence-19",
+    "duplicate": false,
+    "status": "draft",
+    "publicAsset": "",
+    "publicSha256": null
+  },
+  {
+    "sourceFolder": "IT Support and Systems Administration",
+    "originalFilename": "d365_3.png",
+    "sourceSha256": "da516c5194ba2cd566067fa282985781b6ba6c7b60fc56c1365ce976b7081207",
+    "exampleId": "evidence-20",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/support/dynamics-365-technical-support-case-workspace.webp",
+    "publicSha256": "d6586e5fd5b17baacb14d92980b6dfe3ff9cd559e54e13a61843df3e40ae2b0d"
+  },
+  {
+    "sourceFolder": "IT Support and Systems Administration",
+    "originalFilename": "d365_4.png",
+    "sourceSha256": "024c966c72c1da48c162a822cecd068d014fd0d0e7bf8a7b112d582bcf18de7c",
+    "exampleId": "evidence-21",
+    "duplicate": false,
+    "status": "draft",
+    "publicAsset": "",
+    "publicSha256": null
+  },
+  {
+    "sourceFolder": "Lead Generation and Sales Operations",
+    "originalFilename": "v2_Screenshot 2026-10-17 211703.jpg",
+    "sourceSha256": "148a9f799a8c28d39d8773f9d56630ce9c25d60787180aa4d173cdb2654a7dc4",
+    "exampleId": "evidence-22",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/leads/apollo-io-prospect-list-management.webp",
+    "publicSha256": "697d9d7860b41fe4471b3d3ad17c4d636cc0744e887896361dbb20b3926897c3"
+  },
+  {
+    "sourceFolder": "Lead Generation and Sales Operations",
+    "originalFilename": "v2_Screenshot 2026-10-17 211846.jpg",
+    "sourceSha256": "284ad0b7a341ae79292206848a963598e59f1e8867256c76761b69d3b2bc8304",
+    "exampleId": "evidence-23",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/leads/clay-enrichment-table-with-apify-imports.webp",
+    "publicSha256": "3b55af03f4f6c7e2b8495cf070caca6d014c59bdcb348cec6a5a0b73896ed271"
+  },
+  {
+    "sourceFolder": "Lead Generation and Sales Operations",
+    "originalFilename": "v2_Screenshot 2026-10-17 212446.jpg",
+    "sourceSha256": "d6e0f45d69af2516a8cc0f85572970bcde38e713bc147fc58a5f58e7578bd46a",
+    "exampleId": "evidence-24",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/leads/apify-actor-library.webp",
+    "publicSha256": "f8660765f3b54b55e1a68a5bec4faad5abe11e1176df6e409d0f6da1dd3235d7"
+  },
+  {
+    "sourceFolder": "Microsft 365 Administration",
+    "originalFilename": "v2_Screenshot 2026-10-17 203403.jpg",
+    "sourceSha256": "7014f3b7d639c9a2af9e6c2a48a190a1779d15c4fe3b1b4fe1ab635f29ac738b",
+    "exampleId": "evidence-25",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/microsoft/microsoft-365-admin-center-user-and-license-administration.webp",
+    "publicSha256": "4b0b30673d4a37c6030f89ac55be58fa6f7d19d543baa953bed94e34c3800d0a"
+  },
+  {
+    "sourceFolder": "Microsft 365 Administration",
+    "originalFilename": "v2_Screenshot 2026-10-17 203528.jpg",
+    "sourceSha256": "618c6834f1aca75d2d5a9c2e4aeb1daffc3c0cc8e551bcf9b54ff151e0d56223",
+    "exampleId": "evidence-26",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/microsoft/exchange-admin-center-mailbox-management.webp",
+    "publicSha256": "768fcdf2bc2ba7b3fd8818259c41adcf6785fefbc30e3e9f6268bb75dc1c6b22"
+  },
+  {
+    "sourceFolder": "Microsft 365 Administration",
+    "originalFilename": "v2_Screenshot 2026-10-17 203717.jpg",
+    "sourceSha256": "d9dca2499c99cfe3440fa7bf832e6daf3437bf99a92abb0556917efd9f50fd3a",
+    "exampleId": "evidence-27",
+    "duplicate": false,
+    "status": "draft",
+    "publicAsset": "",
+    "publicSha256": null
+  },
+  {
+    "sourceFolder": "Microsft 365 Administration",
+    "originalFilename": "v2_Screenshot 2026-10-17 203808.jpg",
+    "sourceSha256": "b802238637042ec3eee0549e3c85fea79554e5c4130c7fa3a4775346a14932d1",
+    "exampleId": "evidence-28",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/microsoft/microsoft-defender-security-administration-dashboard.webp",
+    "publicSha256": "aa83de2a3783da1833f538fd4e06662b68fc7c685b982e9d7b9ed692355eaa1f"
+  },
+  {
+    "sourceFolder": "Project Management and Collaboration",
+    "originalFilename": "v2_Screenshot 2026-10-17 214712.jpg",
+    "sourceSha256": "442408358ddd734ee6e90f36fb2e4812de39261b372467d91c84290b4bcfa4ac",
+    "exampleId": "evidence-29",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/collaboration/clickup-task-and-workflow-coordination.webp",
+    "publicSha256": "7cc68c1cca3778be722361c880451492ca79ab3ea98dd8a4e6afce46fdc85050"
+  },
+  {
+    "sourceFolder": "Project Management and Collaboration",
+    "originalFilename": "v2_Screenshot 2026-10-17 214943.jpg",
+    "sourceSha256": "47a1521b6ef43173db9ca22d799212d33e2ea3fdca1c042e47516fd879a7c94b",
+    "exampleId": "evidence-30",
+    "duplicate": false,
+    "status": "draft",
+    "publicAsset": "",
+    "publicSha256": null
+  },
+  {
+    "sourceFolder": "Project Management and Collaboration",
+    "originalFilename": "v2_Screenshot 2026-10-17 215201.jpg",
+    "sourceSha256": "1e5f7c5f6bb6749d7a5a1b1285804dfa6e56ce524ea7f166e5a3fac8d8448d6c",
+    "exampleId": "evidence-31",
+    "duplicate": false,
+    "status": "draft",
+    "publicAsset": "",
+    "publicSha256": null
+  },
+  {
+    "sourceFolder": "Recruitment and HR Technology",
+    "originalFilename": "v2_Screenshot 2026-10-17 214436.jpg",
+    "sourceSha256": "e8f709966335ac87580ec1b4e3f07b48f0343e157cb3a8eeb1abc8a24272acd8",
+    "exampleId": "evidence-32",
+    "duplicate": false,
+    "status": "draft",
+    "publicAsset": "",
+    "publicSha256": null
+  },
+  {
+    "sourceFolder": "Recruitment and HR Technology",
+    "originalFilename": "v2_Screenshot 2026-10-17 214502.jpg",
+    "sourceSha256": "57d490732d4ad96dee53622c641b88d81b876c3315c24e384391c827ba2b43d3",
+    "exampleId": "evidence-33",
+    "duplicate": false,
+    "status": "draft",
+    "publicAsset": "",
+    "publicSha256": null
+  },
+  {
+    "sourceFolder": "Recruitment and HR Technology",
+    "originalFilename": "v2_Screenshot 2026-10-17 214536.jpg",
+    "sourceSha256": "1ce7354fdc043767319dccb2e800974b6cc57457fec2b31d9089fe53ab08f099",
+    "exampleId": "evidence-34",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/recruitment/zoho-recruit-recruitment-pipeline-dashboard.webp",
+    "publicSha256": "3d33c752bbd5885b9a0ced947a8588a46f4686ed1bb4f6ef9f3e4aa223da6b4f"
+  },
+  {
+    "sourceFolder": "Workflow Automation and Integration",
+    "originalFilename": "v2_Screenshot 2026-10-17 205300.jpg",
+    "sourceSha256": "c0d85fbe6e43b4b1cebd02d1293d21ecd297cb71dea0c5d73bb9ce0455585b28",
+    "exampleId": "evidence-08",
+    "duplicate": true,
+    "status": "published",
+    "publicAsset": "/work-examples/crm/clickup-business-process-automation-rules.webp",
+    "publicSha256": "f7e640a26395df14dfd9d322cf4bf19c0bf87833047baa4e7534114c4bf4c318"
+  },
+  {
+    "sourceFolder": "Workflow Automation and Integration",
+    "originalFilename": "v2_Screenshot 2026-10-17 205628.jpg",
+    "sourceSha256": "5520c31ffa13f8ee37ce5750cb3daadc73466c5bce1eb934dcf1366ff796b2ee",
+    "exampleId": "evidence-36",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/automation/n8n-workflow-management-overview.webp",
+    "publicSha256": "83cc003a2ce66b9945cabf2dc570eb3d4c537d637333550cebb1a966116fd6f1"
+  },
+  {
+    "sourceFolder": "Workflow Automation and Integration",
+    "originalFilename": "v2_Screenshot 2026-10-17 205655.jpg",
+    "sourceSha256": "c1c27650ed5b12bdad7f0be38b982332db0373d53f032ac8cb2207ffa195e835",
+    "exampleId": "evidence-37",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/automation/n8n-recruitment-integration-workflow.webp",
+    "publicSha256": "755f83fa9c023fbe1fa7c7a87e2c329fa4b003a8e95e2c42e1302c25d07d4b63"
+  },
+  {
+    "sourceFolder": "Workflow Automation and Integration",
+    "originalFilename": "v2_Screenshot 2026-10-17 205914.jpg",
+    "sourceSha256": "2644d86253dc7a6eaa5d0f67b4cf5d8e3af8cfdad2be8de60ef3b78650aa0761",
+    "exampleId": "evidence-38",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/automation/gohighlevel-appointment-confirmation-and-reminder-flow.webp",
+    "publicSha256": "0dc6312ae843f0b60184b03327ec46dd45ad80d285baf9fe74f270bc98148734"
+  },
+  {
+    "sourceFolder": "Workflow Automation and Integration",
+    "originalFilename": "v2_Screenshot 2026-10-17 210308.jpg",
+    "sourceSha256": "28fc3487594b709269333dab934110195c7476a0a08c681e882d1da4d3c09926",
+    "exampleId": "evidence-39",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/automation/make-com-scenario-routing-canvas.webp",
+    "publicSha256": "639579c7182754e4dd462ef3073eed38592a539642cdb98dfc2f1c56aca85ed4"
+  },
+  {
+    "sourceFolder": "Workflow Automation and Integration",
+    "originalFilename": "v2_Screenshot 2026-10-17 210342.jpg",
+    "sourceSha256": "33ecc3377d3b913e405c43f21447da7a13ffb73dc866ca4e559775fb5fb1d849",
+    "exampleId": "evidence-40",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/automation/zapier-business-integration-automations.webp",
+    "publicSha256": "5b87b8a31bc2d39989d3589e9086cdc0ea8e64af64e179735b5b667032e243e3"
+  },
+  {
+    "sourceFolder": "Workflow Automation and Integration",
+    "originalFilename": "v2_Screenshot 2026-10-17 210355.jpg",
+    "sourceSha256": "8c26588ac2ae8d8e55e9927739460102854ff9df5d74568dacca7c7264fc0b61",
+    "exampleId": "evidence-41",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/automation/power-automate-cloud-flow-administration.webp",
+    "publicSha256": "d39362df8e34aa0f63bd9b4d780839d49aa8d14bb239d32421256d96432a2888"
+  },
+  {
+    "sourceFolder": "Workflow Automation and Integration",
+    "originalFilename": "v2_Screenshot 2026-10-17 210553.jpg",
+    "sourceSha256": "c3982b9d9a7d096f197a8db9ee36c62daa966cc462376b2a4a1a4470c2161323",
+    "exampleId": "evidence-42",
+    "duplicate": false,
+    "status": "published",
+    "publicAsset": "/work-examples/automation/exchange-online-powershell-application-permission-scope-check.webp",
+    "publicSha256": "9a5f4d903acd3a4f29044f8435c0159645d262efa7feedb6e79352e61feb117b"
+  }
+]

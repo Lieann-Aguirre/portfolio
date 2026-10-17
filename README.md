@@ -14,7 +14,7 @@ npm run dev
 Open http://localhost:3000. Dark mode is the default. A saved light-mode preference persists locally in the browser.
 
 ```sh
-npm run typecheck
+
 npm run lint
 npm run build
 npm run verify:export
@@ -43,20 +43,46 @@ Pushing to the connected production branch triggers an automatic rebuild and red
 
 All personal information and public copy live in **`content/portfolio.ts`**. Components consume its typed data. Edit profile, biography, contact details, navigation, skills, experience, services, education, certifications, page copy, or SEO there. Do not infer personal skills from this application's implementation stack.
 
-- Keep employment dates factual. Microsoft is September 2021 to May 2025.
+- Keep employment dates factual. Accenture is September 2020 to February 2023; the part-time Upwork support role is February 2023 to October 2026. Keller remains February 2024 to Present.
 - Missing `[ADD ...]` values are private editing reminders and must not become public claims. Optional dates and incomplete project fields are suppressed.
 - Certifications stay hidden until entries have `verified: true`.
 - Keep the two homepage and contact paths equally prominent.
 
+### Client feedback and platform animation
+
+`reviews` contains the seven supplied Upwork contracts, their exact dates and ratings, optional verbatim quotes, excerpt flags, and endorsements. The shared Client Feedback section appears on About and the All Categories Skills overview. Selecting a skill category or opening a screenshot viewer hides Skills feedback. Three contracts have ratings only, and the longer system-admin review is explicitly an excerpt. Add a `sourceUrl` only when you have its real public Upwork link. Do not infer client identities or fill in missing feedback.
+
+Coding education remains editable in `education` but is not rendered publicly. The former training panels and the Zuitt biography paragraph have been removed to emphasize current IT and automation strengths.
+
+`platforms` contains names and local SVG icon paths for the homepage strip. The row moves continuously over 40 seconds, pauses on hover/focus, and has a Pause/Play control. Reduced-motion preferences switch it to a wrapping static list. Duplicate loop items are hidden from assistive technology. Icons are Lucide capability symbols rather than official brand logos; see `docs/assets/platform-icons.md` for provenance and licensing. No animation library or external image requests are used.
+
+### Skills screenshot evidence
+
+Each skill has a stable `id`, `name`, and optional `exampleIds`. The typed `workExamples` records contain the tool, headline, caption, alt text, category IDs, related skill IDs, image dimensions, path, and publication status. Keep both sides of each association consistent. Each category has one `featuredExampleId`; individual skills may have an optional override with the same field. A skill without an override uses its first approved referenced example. Only published examples with valid paths reach browser components. Other skills remain text labels.
+
+The 42 supplied screenshots produce 41 unique records: 33 sanitized public images and eight private drafts. The duplicate ClickUp screenshot shares a single example and asset across CRM and Automation. Public copies live in `public/work-examples/<category>/` and are copied unchanged to `out/work-examples/` during export. Originals remain outside the repository. Category cards retain their compact six-skill fronts and original expand controls. Hover flips each card to one selected screenshot; the image control supports keyboard and touch. Individual skill labels also show one selected example. A single-image viewer provides full-size zoom and close only, with no galleries, thumbnails, Previous/Next controls, or carousels. All images are local static files, with no external image service or upload backend.
+
+See `docs/skills-media-guide.md` for every source filename, identified platform, final headline, skill association, and publication decision. Review and permanently sanitize any new image before placing it in public assets. An empty image path plus draft status keeps unresolved evidence private. Rebuild and redeploy after content changes. Education and the five project drafts remain unpublished.
+
 ### Profile photo
 
-Place an approved photo in `public/images/profile.jpg`. Set `profile.photo` to `/images/profile.jpg` and update `profile.photoAlt`. Static exports use unoptimized images, so compress and resize the source before committing it. The current monogram illustration is a clearly labeled placeholder.
+The selected portrait (supplied as `3.png`) is stored at `public/images/julie-ann-aguirre.webp`. It is a 960-pixel WebP optimized from the supplied PNG, without retouching. The original files in Downloads are unchanged; the unused portrait is not copied into the repository.
+
+`profile.photo` in `content/portfolio.ts` points to `/images/julie-ann-aguirre.webp`. Both the homepage About section and the full About page reuse this single local asset. Next.js copies `public/` files into the static export, so the deployed image is available at `https://lieannaguirre.com/images/julie-ann-aguirre.webp`. It is a public static file, not a database record, external image-host link, or embedded base64 string. There is no request-time image-processing service.
+
+To replace it, put an optimized image in `public/images/`, update `profile.photo` and `profile.photoAlt`, then rebuild and redeploy. The image fills its responsive card with a CSS crop; the source file itself is not cropped. The hero's systems monogram remains a decorative technology graphic.
 
 ### Resume
 
 The public resume at `public/julie-ann-aguirre-resume.pdf` is a copy of the supplied resume with its personal phone span permanently redacted. The original file is not copied into the repository. Website content follows the supplied brief where the resume contains additional details.
 
-For replacements, first inspect every PDF page, text content, annotations, and metadata for personal phone numbers, home addresses, and sensitive information. Put only an approved public copy in `public/`, then update `profile.resumeUrl` if its name changes. Every file in `public/` is downloadable. `scripts/prepare-resume.py` documents the one-time redaction of the original supplied file and requires PyMuPDF; it is not part of website installation or build.
+For replacements, first inspect every PDF page, text content, annotations, and metadata for personal phone numbers, home addresses, and sensitive information. Put only an approved public copy in `public/`, then update `profile.resumeUrl` if its name changes. Every file in `public/` is downloadable.
+
+The supplied resume now uses the central contact email and separates Accenture from the part-time Upwork support role. The user's latest employer correction is Upwork. The original support duties remain with Upwork, now titled Microsoft 365 Service Engineer. Accenture is Microsoft 365 Technical Support in Taguig, Philippines, with separately confirmed troubleshooting duties and technology tags. Display order is Keller, Upwork, then Accenture. Stable experience IDs keep PDF role selection independent of display order. To reproduce this update from a separate copy of the original supplied layout, install PyMuPDF, set `PYTHON_EXECUTABLE` if Python is not on PATH, and run `npx tsx scripts/update-resume.ts <source.pdf>`. The wrapper passes approved contact and experience data from `content/portfolio.ts` into `scripts/prepare-resume.py`. It is a layout-specific preparation tool, not part of installation or the production build. Render and review the result after every change. Never use the output PDF itself as the source.
+
+### JA brand assets
+
+`brand` in the central content file defines the two theme logos, their accessible label, and browser-icon paths. Transparent PNGs are stored in `public/images/brand/`. CSS selects the correct variant before React hydrates, so the saved light theme does not briefly show a dark-theme logo. Header and footer marks are decorative beside the visible name; the hero mark has an accessible label. The generated sharing images use the dark variant. See `docs/assets/brand.md` for source files, cleanup prompts, and preparation details. Supplied originals remain unchanged.
 
 ### Publish a case study
 
