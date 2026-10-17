@@ -25,13 +25,32 @@ npm run preview
 
 The build validates `portfolio.seo.siteUrl`, currently `https://lieannaguirre.com`. An optional `SITE_URL` build environment variable overrides it. Keep this origin aligned with the chosen Cloudflare primary domain. Development falls back to localhost if no domain is configured. Production rejects missing, localhost, or example origins.
 
-## Deploy to Cloudflare Pages
+## Deploy to the existing Cloudflare Worker
+
+The `portfolio` project shown in the Cloudflare dashboard is a Worker. `wrangler.json` explicitly uploads the static `out/` export to that Worker; no application server or full-stack adapter is needed. Unknown routes use the exported 404 page instead of a homepage fallback.
+
+In **portfolio → Settings → Build**, configure:
+
+- Root directory: repository root (leave empty or use `/`).
+- Build command: `npm run build`.
+- Deploy command: `npx wrangler deploy`.
+- Production branch: `master`.
+- Build environment variable: `NODE_VERSION=22`.
+- Optional build environment variable: `SITE_URL=https://lieannaguirre.com` (the central content file already supplies this domain).
+
+Commit and push the configuration, then retry the build. Wrangler's `name` must match the existing Worker name, `portfolio`. Keep the assets directory as `out`, not `.next` or `public`. Do not use an OpenNext build command for this static export. The Worker configuration also works with the dashboard's default `npx wrangler deploy` command.
+
+If a build fails, open **Deployments → failed build → Build logs** and inspect the first error and its surrounding lines. A successful Git push only confirms the repository upload. The supplied failed deployment log reported `Running custom build npx opennextjs-cloudflare build failed` during the deploy command. This static site must use the commands above rather than that full-stack adapter. The explicit Wrangler configuration avoids framework auto-configuration; account permissions and dashboard build settings still need verification on Cloudflare.
+
+See [Cloudflare's static site configuration](https://developers.cloudflare.com/workers/static-assets/routing/static-site-generation/). To validate deployment packaging without publishing, run `npm run build` followed by `npx wrangler deploy --dry-run`.
+
+## Alternative: deploy to Cloudflare Pages
 
 1. Push this source to a GitHub repository. Do not commit `node_modules`, `.next`, `out`, or private environment files.
 2. In Cloudflare, choose **Workers & Pages → Create → Pages → Connect to Git** and select the repository and production branch.
 3. Set build command to **`npm run build`**, build output directory to **`out`**, and Node version to **22**. Set `NODE_VERSION=22` if the build UI requires an environment variable; `.nvmrc` also pins it.
 4. Choose the **Next.js static HTML export** preset if available. Otherwise choose no preset and enter these settings. Do not choose the full-stack Next.js / Workers preset.
-5. Deploy. Cloudflare serves exported files without a Worker. This project needs no Wrangler, OpenNext, Docker, or Hostinger setup.
+5. Deploy. Pages serves exported files without an application server. The root Wrangler configuration is for the alternative Workers deployment; do not use a Workers deploy command in Pages.
 6. In the Pages project, open **Custom domains → Set up a custom domain**, enter `lieannaguirre.com`, and follow Cloudflare's DNS validation. Because the domain is already managed in Cloudflare, use its suggested DNS records. Choose the same primary domain used by `portfolio.seo.siteUrl`.
 7. Confirm HTTPS, route refreshes, an unknown URL returning HTTP 404, canonical URLs, social images, and security headers on the live deployment.
 
