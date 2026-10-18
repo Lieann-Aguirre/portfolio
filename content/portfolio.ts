@@ -48,6 +48,15 @@ export const portfolio = {
   },
   contact: {
     email: "hello@lieannaguirre.com",
+    booking: {
+      url: "https://bookings.cloud.microsoft/book/JAITandAutomation@lieannaguirre.com/?ismsaljsauthenabled",
+      heading: "Schedule a conversation",
+      description: "Discuss a remote opportunity or the IT and automation support your business needs.",
+      action: "Schedule an appointment",
+      externalAction: "Open Microsoft Bookings in a new tab",
+      notice: "The calendar loads from Microsoft only when you choose to schedule. If it does not appear, use the link to open Microsoft Bookings in a new tab.",
+      iframeTitle: "Schedule an appointment with Julie Ann Aguirre using Microsoft Bookings",
+    },
     social: [
       { label: "LinkedIn", url: "https://www.linkedin.com/in/julie-ann-aguirre-764919440/" },
       { label: "GitHub", url: "https://github.com/Lieann-Aguirre" },
@@ -1020,7 +1029,7 @@ export const portfolio = {
   ] as Project[],
   projectCategories: ["Microsoft 365", "Google Workspace", "IT Administration", "Automation", "CRM", "Email Marketing", "Lead Generation", "Recruitment Systems"],
   seo: {
-    // Set your real https://custom-domain or https://project.pages.dev before production builds.
+    // Live production origin. Keep any SITE_URL build override aligned with this domain.
     siteUrl: "https://lieannaguirre.com", title: "Julie Ann Aguirre | Microsoft 365 Administrator & Automation Specialist",
     description: "Explore the professional portfolio of Julie Ann Aguirre, an IT Systems Administrator specializing in Microsoft 365, Google Workspace, Dynamics 365, GoHighLevel, technical support, and business automation.",
   },

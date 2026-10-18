@@ -37,6 +37,12 @@ for (const route of ["", "experience"]) {
   assert(html.includes(p.contact.email), `Missing current contact email on ${route || "home"}`);
 }
 const evidence = publishedWorkExamples();
+const contactHtml = await readFile("out/contact/index.html", "utf8");
+assert(contactHtml.includes('id="schedule"'), "Missing scheduling section");
+assert(!contactHtml.includes("<iframe"), "Booking calendar must load only on request");
+assert(contactHtml.includes(p.contact.booking.externalAction), "Missing booking fallback link");
+const headers = await readFile("out/_headers", "utf8");
+assert(headers.includes("frame-src https://bookings.cloud.microsoft;"), "Missing Bookings frame policy");
 for (const category of p.skills) {
   const selected = evidence.find(example => example.id === category.featuredExampleId);
   assert(selected?.categories.includes(category.id), `Invalid representative category screenshot: ${category.id}`);

@@ -1,6 +1,6 @@
 # Julie Ann Aguirre | IT & Automation Portfolio
 
-A fully static Next.js App Router portfolio for remote employment and freelance enquiries. TypeScript, Tailwind CSS, selected shadcn/ui primitives, and Lucide icons. No server, database, API keys, analytics, contact-form backend, or runtime integrations.
+A fully static Next.js App Router portfolio for remote employment and freelance enquiries. TypeScript, Tailwind CSS, selected shadcn/ui primitives, and Lucide icons. No application server, database, API keys, analytics, or contact-form backend. Microsoft Bookings loads in an external iframe only on request.
 
 ## Local setup
 
@@ -110,6 +110,14 @@ Five narratives are stored as `status: "draft"` in the content file. They are no
 `generateStaticParams` returns only published slugs and `dynamicParams` is false. Next.js 16 static export rejects an empty params array, so `scripts/prepare-routes.ts` materializes the route from `templates/case-study-page.tsx` only when at least one project is published. Do not edit the generated route; edit the template. No dummy route is generated for the empty collection. Drafts are filtered in build-time server components and are never passed into browser components. With no published projects, the homepage omits projects and the projects page shows an intentional empty state. Unpublished URLs return 404. New content requires rebuilding and redeploying.
 
 ### Links and contact
+
+The live portfolio domain is `https://lieannaguirre.com`, with contact email `hello@lieannaguirre.com`. Canonicals, social metadata, structured data, and sitemap use the central site URL. Keep any Cloudflare `SITE_URL` override aligned with this domain.
+
+Microsoft Bookings settings and visible scheduling copy live in `contact.booking`. Contact provides an on-demand calendar at `/contact/#schedule`; homepage and footer links lead there. No iframe is rendered or Microsoft calendar request made until the scheduling button is activated. A direct Microsoft Bookings link remains available before and after loading. The iframe uses Microsoft's public booking page; the portfolio does not store appointment data. `_headers` explicitly allows only `https://bookings.cloud.microsoft` as a frame source while retaining existing script, connection, and frame-ancestor restrictions. If Microsoft changes its embed origin or redirects to another origin, verify that destination before changing the policy; the direct link remains the fallback.
+
+The public resume includes the clickable website address and current LinkedIn profile. Its preparation wrapper supplies the website, email, LinkedIn, and experience from central content. Rebuild after replacing the PDF so the exported download matches.
+
+Microsoft Bookings currently requires an HTTPS parent page (`frame-ancestors https:`). The plain HTTP local preview cannot display the embedded calendar; use the direct link there. The actual public Microsoft calendar was successfully loaded and visually verified in an intercepted HTTPS preview context with the portfolio's CSP applied. No appointment was submitted. Confirm the same behavior on the live HTTPS domain after deployment.
 
 Edit `contact.email`, `contact.social`, and `profile.resumeUrl`. Service enquiries use `mailto:` subjects; no form submission or personal data storage occurs. Email copying requires a secure browser context (HTTPS or localhost), and failures show an accessible message alongside the clickable email address.
 

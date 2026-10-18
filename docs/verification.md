@@ -96,3 +96,10 @@ Next.js 16 rejects an empty `generateStaticParams` collection during static expo
 Selected category tabs now show every approved associated screenshot in a static responsive collection. All Categories keeps the existing featured-image flips. Lint, production build, TypeScript, and export verification passed (142 exported files; private drafts excluded).
 
 Local Chrome checks passed for all 12 collections against the published records, every screenshot's enlargement and zoom, Escape dismissal and opener restoration, search-independent collections, overview flips and seven reviews, touch interaction, dark/light layouts at 390 and 1440 pixels, reduced motion, and horizontal overflow. Desktop and mobile collection captures were visually inspected. No browser page errors were reported.
+# Microsoft Bookings and live domain, October 18, 2026
+
+Contact now provides an on-demand Microsoft Bookings iframe, with an always-available external link. Homepage contact and footer link to the scheduling anchor. The exact supplied URL is stored centrally. The iframe is absent before activation; keyboard activation and mobile/desktop layouts in both themes were checked, with no page overflow or application errors.
+
+The actual Microsoft Bookings calendar returned HTTP 200 and loaded its business, services, and availability in an intercepted HTTPS preview with the exported CSP applied. Plain HTTP localhost is blocked by Microsoft's own `frame-ancestors https:` policy, as expected. The direct link remains available. Microsoft emitted its own favicon CSP warning inside the embedded document; the calendar remained functional. No appointment was submitted. Live publication and post-deployment confirmation remain separate.
+
+The public PDF was rendered and visually inspected: one page, current website/email/LinkedIn links, unchanged experience and phone redactions, no obsolete Gmail or LinkedIn links, and empty document metadata. Public and exported PDF hashes match. Production metadata continues to use https://lieannaguirre.com.
