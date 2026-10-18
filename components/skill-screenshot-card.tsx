@@ -5,10 +5,11 @@ import { ImageIcon, RotateCcw } from "lucide-react";
 import type { WorkExample } from "@/content/portfolio";
 
 /** The front alone determines card height. The back contains exactly one selected image. */
-export function SkillScreenshotCard({ id, name, example, copy, viewerActive, renderFront, onOpen }: {
+export function SkillScreenshotCard({ id, name, example, copy, viewerActive, renderFront, onOpen, staticScreenshot = false }: {
   id: string; name: string; example?: WorkExample; copy: Record<string, string>; viewerActive: boolean;
   renderFront: (active: boolean, previewChanged: (id: string, open: boolean) => void, open: (example: WorkExample) => void) => ReactNode;
   onOpen: (example: WorkExample) => void;
+  staticScreenshot?: boolean;
 }) {
   const [hovered, setHovered] = useState(false), [pinned, setPinned] = useState(false);
   const [focusedBack, setFocusedBack] = useState(false), [suppressed, setSuppressed] = useState(false);
@@ -18,7 +19,7 @@ export function SkillScreenshotCard({ id, name, example, copy, viewerActive, ren
   function openFront(selected: WorkExample) { setSuppressed(true); setPinned(false); onOpen(selected); }
   const flipped = Boolean(example) && !suppressed && !previews.length && (hovered || pinned || focusedBack || viewerActive);
   function back() { setPinned(false); setHovered(false); setFocusedBack(false); setSuppressed(true); toggle.current?.focus(); }
-  if (!example) return <article className="skill-card" id={id}>{renderFront(true, previewChanged, onOpen)}</article>;
+  if (!example || staticScreenshot) return <article className="skill-card" id={id}>{renderFront(true, previewChanged, onOpen)}</article>;
   return <article id={id} className={`skill-card screenshot-card ${flipped ? "is-flipped" : ""}`} aria-label={name}
     onPointerEnter={event => {
       // Keep direct interactions with the original skill labels available on the front.

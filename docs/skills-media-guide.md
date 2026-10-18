@@ -83,11 +83,13 @@ Titles describe visible interfaces only, without inferred project results. Relat
 5. Set status to published only after the copy is reviewed. Leave unresolved records as draft with an empty image path. A published screenshot and a published project are independent approvals.
 6. Rebuild, run the export checks, and redeploy the `out/` directory. Static Cloudflare Pages has no runtime upload or content database.
 
-## Current presentation: one selected screenshot
+## Current presentation: overview flips and category collections
 
 The original compact category cards and their six-item preview, expand controls, search, and category filters are preserved. Hovering a category card flips it to one approved representative screenshot. The small image control toggles the face for keyboard and touch users. The All Categories filter button itself does not flip. Back faces show only one image, its tool badge, and its descriptive title; card height does not increase for a full hidden tools list.
 
-Individual skill labels use one selected screenshot as well. `featuredExampleId` selects an override; otherwise the first approved referenced example is used. Skill previews remain dismissible and hoverable. Direct interaction with a skill label or existing card action is preserved; the Back control keeps the front available while the pointer remains inside. A full-size single-image viewer has zoom, Close, Escape, focus containment, and opener restoration. All former multi-image grids, galleries, carousels, thumbnail navigation, counters, and Previous/Next controls have been removed.
+Flips apply only to All Categories. Selecting an individual category shows a static skills card followed by every published screenshot associated with that category in a responsive two-column collection (one column on mobile). Skill search does not filter the collection. Each screenshot has a tool badge, descriptive title, and caption. Shared assets appear once in each associated category.
+
+Individual skill labels still use one selected screenshot. `featuredExampleId` selects an override; otherwise the first approved referenced example is used. Skill previews remain dismissible and hoverable. Clicking a collection image or skill preview opens a full-size single-image viewer with zoom, Close, Escape, focus containment, and opener restoration. There are no carousels or Previous/Next controls inside the viewer.
 
 The All Categories overview retains seven reviews while cards flip. Selecting a category or opening a full-size screenshot hides feedback; closing restores it only on the overview. Reduced motion switches card faces instantly. Unsupported skills stay ordinary labels and unresolved private images remain excluded.
 

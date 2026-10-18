@@ -895,7 +895,8 @@ export const portfolio = {
   "categoryExamples": "View category examples",
   "sourceNote": "Screenshot evidence",
   "previewHelp": "Hover over a category card to see its selected screenshot. Use the image control to switch sides with a keyboard or touch. Skills with an expand icon show one work example.",
-  "skillPreviewHelp": "Skills with an expand icon show one selected screenshot. Hover, focus, or select a skill to view it."
+  "skillPreviewHelp": "Skills with an expand icon show one selected screenshot. Hover, focus, or select a skill to view it.",
+  "staticPreviewHelp": "Browse all approved screenshots for this category below the skills. Select any screenshot to enlarge and zoom. Skills with an expand icon also show one work example on hover, focus, or selection."
 },
 
   skills: [

@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState, type ReactNode } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowUpRight, ChevronDown, Search, SlidersHorizontal } from "lucide-react";
 import type { Project, SkillCategory, WorkExample } from "@/content/portfolio";
 import { Input } from "@/components/ui/input";
@@ -33,17 +34,18 @@ export function SkillsExplorer({ categories, copy, examples, proofCopy, overview
   }
   const matches = useMemo(() => categories.filter(c => category === "all" || c.id === category).map(c => ({ ...c, skills: c.skills.filter(skill => `${skill.name} ${c.name}`.toLowerCase().includes(query.trim().toLowerCase())) })).filter(c => c.skills.length), [categories, query, category]);
   const count = matches.reduce((total, c) => total + c.skills.length, 0);
+  const selectedExamples = category === "all" ? [] : examples.filter(example => example.categories.includes(category));
   return <SkillPreviewScope>
     <div className="container explorer">
       <div className="filter-bar"><div className="search-field"><Search size={19} aria-hidden="true" /><label className="sr-only" htmlFor="skill-search">{copy.search}</label><Input id="skill-search" value={query} onChange={e => setQuery(e.target.value)} placeholder={copy.searchPlaceholder} /></div><div className="select-wrap"><SlidersHorizontal size={16} aria-hidden="true" /><label className="sr-only" htmlFor="skill-category">{copy.category}</label><select id="skill-category" value={category} onChange={e => selectCategory(e.target.value)}><option value="all">{copy.all}</option>{categories.map(c => <option value={c.id} key={c.id}>{c.shortName}</option>)}</select></div></div>
       <div className="filter-chips" role="group" aria-label={copy.category}><button className={category === "all" ? "chip active" : "chip"} aria-pressed={category === "all"} onClick={() => selectCategory("all")}>{copy.all}</button>{categories.map(c => <button key={c.id} className={category === c.id ? "chip active" : "chip"} aria-pressed={category === c.id} onClick={() => selectCategory(c.id)}>{c.shortName}</button>)}</div>
-      <p className="evidence-help">{category === "all" && !query.trim() ? proofCopy.previewHelp : proofCopy.skillPreviewHelp}</p>
+      <p className="evidence-help">{category === "all" ? proofCopy.previewHelp : proofCopy.staticPreviewHelp}</p>
       <p className="results-label" role="status">{count} {copy.result}</p>
       {matches.length ? <div className={`skill-grid ${category !== "all" ? "is-filtered" : ""}`}>{matches.map(c => {
         const isOpen = Boolean(query.trim()) || expanded.includes(c.id); const visible = isOpen ? c.skills : c.skills.slice(0, 6);
         const available = examples.filter(example => example.categories.includes(c.id));
         const featured = available.find(example => example.id === c.featuredExampleId);
-        return <SkillScreenshotCard id={c.id} name={c.name} key={`${category}:${query.trim()}:${c.id}`} example={featured} copy={proofCopy} viewerActive={viewer?.categoryId === c.id} onOpen={example => setViewer({ example, categoryId: c.id })} renderFront={(active, previewChanged, open) => <>
+        return <SkillScreenshotCard id={c.id} name={c.name} staticScreenshot={category !== "all"} key={`${category}:${query.trim()}:${c.id}`} example={featured} copy={proofCopy} viewerActive={viewer?.categoryId === c.id} onOpen={example => setViewer({ example, categoryId: c.id })} renderFront={(active, previewChanged, open) => <>
           <div className="skill-card-heading"><span className="mono accent">{String(categories.findIndex(item => item.id === c.id) + 1).padStart(2, "0")}</span><span className="mono muted">{c.skills.length}</span></div>
           <h2>{c.name}</h2><p>{c.description}</p>
           <ul className="tags" id={`skills-${c.id}`}>{visible.map(skill => {
@@ -57,6 +59,10 @@ export function SkillsExplorer({ categories, copy, examples, proofCopy, overview
           </div>
         </>} />;
       })}</div> : <div className="empty-state"><Search size={32} /><h2>{copy.noResults}</h2><p>{copy.noResultsDetail}</p><Button variant="outline" onClick={() => { setQuery(""); selectCategory("all"); }}>{copy.reset}</Button></div>}
+      {selectedExamples.length > 0 && <div className="category-screenshots">{selectedExamples.map(example => <figure className="static-screenshot" key={example.id}>
+        <button className="screenshot-feature-image" type="button" aria-label={`${proofCopy.openScreenshot}: ${example.title}`} onClick={event => { event.currentTarget.focus(); setViewer({ example, categoryId: category }); }}><Image src={example.image} alt={example.alt} width={example.width} height={example.height} sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 550px" /></button>
+        <figcaption className="screenshot-feature-caption"><span className="evidence-tool">{example.tool}</span><h3>{example.title}</h3><p>{example.caption}</p></figcaption>
+      </figure>)}</div>}
     </div>
     {category === "all" && !viewer && overviewFeedback}
     {viewer && <ScreenshotViewer example={viewer.example} copy={proofCopy} onClose={() => setViewer(null)} />}

@@ -91,3 +91,8 @@ Cloudflare Pages publication, domain/DNS ownership, HTTPS, edge security-header 
 `npm audit --omit=dev` reports **zero production vulnerabilities**. The full audit reports five high-severity entries in the development-only ESLint fast-glob/micromatch/braces dependency chain. The registry's latest braces release is still 3.0.3 and the advisory has no compatible patched dependency available. These lint tools are not shipped in the static export. Do not use an automatic force downgrade of the Next.js lint configuration.
 
 Next.js 16 rejects an empty `generateStaticParams` collection during static export. The documented route-preparation step omits the dynamic route entirely until a project is published, rather than exporting a dummy route. Webpack is selected explicitly because the local Windows runtime's Turbopack CSS subprocess failed; this does not add any runtime server requirement.
+# Category screenshot collections, October 18, 2026
+
+Selected category tabs now show every approved associated screenshot in a static responsive collection. All Categories keeps the existing featured-image flips. Lint, production build, TypeScript, and export verification passed (142 exported files; private drafts excluded).
+
+Local Chrome checks passed for all 12 collections against the published records, every screenshot's enlargement and zoom, Escape dismissal and opener restoration, search-independent collections, overview flips and seven reviews, touch interaction, dark/light layouts at 390 and 1440 pixels, reduced motion, and horizontal overflow. Desktop and mobile collection captures were visually inspected. No browser page errors were reported.
